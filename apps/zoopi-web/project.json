@@ -64,6 +64,29 @@
           }
         ]
       }
+    },
+    "build-storybook": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "build-storybook -c apps/zoopi-web/.storybook -o apps/zoopi-web/.storybook/dist"
+          }
+        ]
+      }
+    },
+    "chromatic": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "nx run zoopi-web:build-storybook"
+          },
+          {
+            "command": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN -d=apps/zoopi-web/.storybook/dist"
+          }
+        ]
+      }
     }
   },
   "tags": []
