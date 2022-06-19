@@ -15,4 +15,4 @@ jobs:
           targets: chromatic
           projects: zoopi-web
           env:
-            CHROMATIC_PROJECT_TOKEN: secrets.CHROMATIC_PROJECT_TOKEN
+            CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
